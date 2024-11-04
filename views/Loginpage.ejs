@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/assets/Loginpage.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <a href="/"><img id="logo" src="/assets/iiestlogo3original.png" alt="IIEST Logo"></a>
+        <nav class="navigation">
+            <a id="about" href="/about">About</a>
+            <a id="signup" href="/signup">Sign Up</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <form action="/login" method="POST">
+            <p id="name">Your username or email</p>
+
+            <div class="input">
+                <div id="inputname">
+                    <input type="text" name="username" placeholder="Username or email" required>
+                </div>
+            </div>
+
+            <p id="password">Password</p>
+
+            <div class="input">
+                <div id="inputpassword">
+                    <input type="password" name="password" placeholder="Password" required>
+                </div>
+            </div>
+
+            <!-- <div id="fpassword">
+                <a id="forgotpassword" href="#">Forgot password?</a>
+            </div> -->
+
+            <br>
+            <div id="login">
+                <button type="submit" id="loginbtn">Log in</button>
+            </div>
+
+            <p id="noaccount">Don't have an account?</p>
+            <a id="createaccount" href="/signup">Create Account</a>
+        </form>
+    </div>
+
+</body>
+
+</html>

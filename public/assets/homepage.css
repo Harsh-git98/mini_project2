@@ -1,0 +1,186 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.main {
+    width: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.5) 50%), url(Modern\ Minimal\ Technology\ Background\ Youtube\ Thumbnail_20241015_233114_0000.png);
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 75px;  /* Ensure content starts below the navbar */
+}
+
+
+
+/* Navbar Styles */
+.navbar {
+    position: fixed;  
+    top: 0;      
+    left: 0;         
+    width: 100%;  
+    height: 75px;
+    background-color:transparent; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+      
+    z-index: 10;
+    padding: 0 10px;
+}
+
+/* Icon Container */
+.icon {
+    display: flex;
+    align-items: center;
+    width: 200px;
+    height: 70px;
+}
+
+/* Logo Styling */
+.logo {
+    
+    color: aqua;
+    font-size: 36px; 
+    padding-left: 10px;
+    float: left;
+}
+
+/* Menu Container */
+.menu {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Menu List */
+ul {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    /* margin-top: 40px; */
+    
+}
+
+/* Menu Items */
+ul li {
+    margin-left: 30px;
+    font-size: 14px;
+}
+
+ul li a {
+    display: inline-block;
+    text-decoration: none;
+    color: aqua;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    padding: 10px 10px; /* Adjust padding to give space around the border */
+    border: 2px solid aqua; 
+    border-radius: 8px; 
+    background-color: transparent; 
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover effect */
+}
+ul li a:hover {
+    color: rgb(14, 13, 13);
+    background-color: aqua; 
+    border-color: rgb(43, 245, 7); 
+}
+        
+    
+    
+    
+
+.logo-img {
+    width: 75px; 
+    height: 75px; 
+    position: absolute;
+    left: 20px; 
+    top: 70%; 
+    transform: translateY(-50%);
+    float: flex;
+left:10px;
+}
+
+
+
+
+
+
+.heading{
+    margin:0px;
+    padding: 0px;
+    box-sizing:border-box;
+    font-family: sans-serif;
+
+}
+
+body{
+    background-color: aqua;
+}
+.heading{
+    text-align: center;
+    margin-top: 25px;
+}
+.heading h1{
+    font-size:50px;
+    color:bisque;
+    margin-bottom: 10px;
+}
+
+.heading p{
+    font-size: 20px;
+    color:antiquewhite;
+    margin-bottom: 50px;
+
+}
+
+.about-us{
+    display:flex;
+    align-items: center;
+    width:85%
+    
+}
+
+.about-us img{
+    flex:0 50%;
+    max-width:  50%;
+    height:auto;
+}
+
+.content{
+    padding: 35px;
+}
+.content h2{
+    color:blueviolet;
+    font-size: 18px;
+    line-height: 1.5;
+    margin: 15px 0px;
+
+}
+
+@media(max-width: 768px){
+    .about-us{
+        flex-direction:column;
+    }
+    .about-us img{
+        flex:0 100%;
+        max-width:100%;
+    }
+    .content{
+        flex:0 100%;
+        max-width:100%;
+        padding:15px;
+    }
+}
+

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sign up for an account">
+    <meta name="keywords" content="sign up, beings, iiests, iiest">
+    <meta name="robots" content="INDEX,FOLLOW">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/signup.css">
+
+    <title>Sign Up</title>
+
+    <style>
+        a {
+            text-decoration: none;
+        }
+
+        a:hover {
+            background: #311b92;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="logo">
+        <a href="/login">
+            <img src="/assets/iiestlogo3original.png" height="75px" width="75px" alt="IIEST Logo">
+        </a>
+        <a id="about" href="/about">About</a>
+        <a id="login" href="/login">Log In</a>
+    </div>
+
+    <div class="inner">
+        <p id="create">Create an Account</p>
+
+        <main class="signupbody">
+            <form action="/signup" method="POST" onsubmit="return validateForm()">
+                <p>
+                    <label for="firstname" class="input-info">Firstname</label>
+                    <input type="text" id="myfirstname" name="firstname" placeholder="30 characters" required>
+                </p>
+
+                <p>
+                    <label for="surname" class="input-info">Surname</label>
+                    <input type="text" id="mysurname" name="surname" placeholder="30 characters" required>
+                </p>
+
+                <p>
+                    <label for="rollno" class="input-info">Enrollment no</label>
+                    <input type="text" id="myroll" name="rollno" placeholder="Enrollment no." required>
+                </p>
+
+                <p>
+                    <label for="email" class="input-info">Gsuite Id</label>
+                    <input type="email" id="myemail" name="email" placeholder="Enter G-Suite ID" required>
+                </p>
+                <p>
+                    <label for="interest" class="input-info">Gsuite Id</label>
+                    <input type="interest" id="myinterest" name="interest" placeholder="Enter interest" required>
+                </p>
+
+                <p>
+                    <label for="dob" class="input-info">Date of Birth</label>
+                    <input type="date" id="dob" name="dob" required>
+                </p>
+
+                <p>
+                    <label class="input-info">Gender</label><br>
+                    Male <input type="radio" name="gender" value="Male" class="radio-btn" required>
+                    Female <input type="radio" name="gender" value="Female" class="radio-btn">
+                    Other <input type="radio" name="gender" value="Other" class="radio-btn">
+                </p>
+
+                <div class="input-info">
+                    <label for="username">Username</label>
+                    <input type="text" id="myusername" name="username" required placeholder="Username">
+                </div>
+
+                <div class="input-info">
+                    <label for="password">Password</label>
+                    <input type="password" id="mypassword" name="password" placeholder="At least 8 characters" required>
+                </div>
+
+                <div class="input-info">
+                    <label for="cpassword">Confirm Password</label>
+                    <input type="password" id="mypassword1" required placeholder="Re-enter your password">
+                </div>
+
+                <div id="inline-field">
+                    <label for="checkbox">Agree to terms and conditions</label>
+                </div>
+                <div id="myagreement">
+                    <input type="checkbox" required>
+                </div>
+
+                <p>
+                    <span><input type="reset" id="clear" value="Clear"></span>
+                </p>
+
+                <p>
+                    <input type="submit" id="submit" value="Next &raquo;">
+                </p>
+            </form>
+        </main>
+    </div>
+
+    <script>
+        function validateForm() {
+            const password = document.getElementById("mypassword").value;
+            const confirmPassword = document.getElementById("mypassword1").value;
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match!");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>

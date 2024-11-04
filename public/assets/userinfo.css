@@ -1,0 +1,166 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+
+body {
+    background-image: url(network2.jpg);
+    background-size: cover;
+    background-position: center;
+
+}
+
+.navbar
+{
+    width: 100vw;
+    height: 10vh;
+}
+
+.signupbody
+{
+    width: 500px;
+    height: 65vh;
+    margin: 0px auto;
+    position: relative;
+    margin-top: 100px;
+    padding-right: 20px;
+    /* padding-left: 50px; */
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background: linear-gradient(135deg, rgba(227, 231, 236, 0.737), rgba(255, 255, 255, 0));
+    box-shadow: 0 8px 32px 0 rgba(241, 244, 245, 0.534);
+    border:1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur 8px;
+    border-radius: 10px;
+}
+
+.form
+{
+    margin: 10px;
+}
+
+.input-info
+{
+    margin-bottom: 5px;
+    margin-left: 20px;
+}
+
+#inline-field
+{
+    display: inline-block;
+    padding-left: 25px;
+    margin: 20px auto;
+}
+
+#myusername
+{
+    margin: 0px 20px;
+    margin-bottom: 10px;
+    width: 440px;
+    height: 25px;
+    outline: none;
+    padding: 10px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+}
+
+#mypassword
+{
+    margin: 0px 20px;
+    margin-bottom: 10px;
+    width: 440px;
+    height: 40px;
+    outline: none;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+
+
+    
+}
+
+#mypassword1
+{
+    margin: 0px 20px;
+    width: 440px;
+    height: 40px;
+    outline: none;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+
+
+}
+
+.input-info label 
+{
+    font-weight: bold;
+}
+
+#myagreement
+{
+    display: inline-block;
+    margin: 1px 4px;
+    
+}
+
+#submit-btn
+{
+    display: flex;
+    justify-content: center;
+    margin-top: 35px;
+}
+
+#submit
+{
+    height: 40px;
+    width: 150px;
+    cursor: pointer;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+}
+
+#inline-field label
+{
+    color: white;
+}
+
+#submit:hover{
+    background-color:  #076ff7;
+    color: white;
+}
+
+#about {
+    position: fixed;
+    top: 0;
+    right: 80px;
+    color: rgb(242, 236, 236);
+    font-size: 18px;
+    margin-top: 16px;
+    margin-right: 65px;
+    text-decoration: underline;
+    font-style: italic;
+}
+
+#login {
+    position: fixed;
+    top: 0;
+    right: 0;
+    border: 2px solid white;
+    border-radius: 6px;
+    color: rgb(239, 233, 233);
+    background-color: rgba(21, 229, 6, 0.443);
+    margin-top: 10px;
+    font-size: 18px;
+    margin-right: 36px;
+    margin-left: -15px;
+    padding: 6px;
+    text-decoration: none;
+    box-shadow: 1px 2px 3px;
+    font-style: oblique;
+}
