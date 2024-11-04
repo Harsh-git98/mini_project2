@@ -46,19 +46,46 @@
 
     </div>
 
-    <div>HEADING find your potential Mates</div>
+    <h1>Find you potential Mates</h1>
 
 
+    <div class="cards"></div>
 
-    <div></div>
-
-
-
+    <script>
+      // Function to fetch data from the backend
+      async function fetchData() {
+        try {
+          const response = await fetch('/api/users'); // Updated URL for the API route
+          const data = await response.json();
     
-
-
-
-    </div>
+          const cardsContainer = document.querySelector('.cards');
+    
+          data.forEach((item) => {
+            const card = document.createElement('div');
+            card.classList.add('card');
+    
+            const name = document.createElement('p');
+            name.textContent = `Name: ${item.firstname} ${item.surname}`;
+    
+            const email = document.createElement('p');
+            email.textContent = `Area of Interest: ${item.dob}`;
+    
+            // Append p tags to the card div
+            card.appendChild(name);
+            card.appendChild(email);
+    
+            // Append the card to the cardsContainer
+            cardsContainer.appendChild(card);
+          });
+        } catch (error) {
+          console.error("Error fetching data:", error);
+        }
+      }
+    
+      // Call fetchData when the page loads
+      document.addEventListener('DOMContentLoaded', fetchData);
+    </script>
+    
     
 </body>
 </html>

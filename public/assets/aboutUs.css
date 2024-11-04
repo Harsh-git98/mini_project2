@@ -31,7 +31,9 @@ body {
     margin-bottom: 50px;
     
 }
-
+p{
+    color: aliceblue;
+}
 .about-us {
     display: flex;
     align-items: center;

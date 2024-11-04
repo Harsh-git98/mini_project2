@@ -28,7 +28,7 @@ const userSchema = new mongoose.Schema({
     surname: String,
     rollno: String,
     email: String,
-    dob: Date,
+    dob: String,
     gender: String,
     username: { type: String, unique: true },
     password: String
@@ -86,7 +86,7 @@ app.get("/signup", (req, res) => {
 
 // Protected homepage route
 app.get("/", (req, res) => {
-    res.render("homepage");
+    res.redirect('/homepage');
 });
 
 // About page route
@@ -98,6 +98,21 @@ app.get("/about", (req, res) => {
 app.get("/user", (req, res) => {
     res.render("userinfo");
 });
+
+
+
+
+//User DATA
+
+app.get('/api/users', async (req, res) => {
+    try {
+        const users = await User.find({}, 'firstname surname dob'); // Adjust fields as needed
+        res.json(users); // Send the user data as JSON
+    } catch (error) {
+        res.status(500).send('Error fetching users: ' + error.message);
+    }
+});
+
 
 // Start server
 const PORT = process.env.PORT || 3000;
