@@ -1,0 +1,111 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group Chat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+        }
+        #chat-box {
+            width: 50%;
+            height: 400px;
+            border: 1px solid black;
+            overflow-y: auto;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .message {
+            padding: 5px;
+            margin: 5px 0;
+            border-radius: 5px;
+            background: #f1f1f1;
+        }
+        #message-form {
+            display: flex;
+            width: 50%;
+        }
+        #message-form input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        #message-form button {
+            padding: 10px;
+            background: blue;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Public Chat Room</h2>
+    <div id="chat-box"></div>
+
+    <form id="message-form">
+        <input type="text" id="message-input" placeholder="Type your message..." required>
+        <button type="submit">Send</button>
+    </form>
+
+    <script>
+        const chatBox = document.getElementById('chat-box');
+        const messageForm = document.getElementById('message-form');
+        const messageInput = document.getElementById('message-input');
+        const username = prompt("Enter your username:") || "Guest";
+
+        // Function to fetch messages from API
+        async function fetchMessages() {
+            try {
+                const response = await fetch('/api/messages');
+                const messages = await response.json();
+
+                chatBox.innerHTML = ''; // Clear previous messages
+                messages.forEach(msg => {
+                    const newMessage = document.createElement('div');
+                    newMessage.classList.add('message');
+                    newMessage.innerHTML = `<strong>${msg.username}:</strong> ${msg.message}`;
+                    chatBox.appendChild(newMessage);
+                });
+                chatBox.scrollTop = chatBox.scrollHeight;
+            } catch (error) {
+                console.error("Error fetching messages:", error);
+            }
+        }
+
+        // Function to send a new message
+        async function sendMessage(event) {
+            event.preventDefault();
+            const message = messageInput.value.trim();
+            if (message) {
+                try {
+                    await fetch('/api/messages', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ username, message })
+                    });
+                    messageInput.value = '';
+                    fetchMessages(); // Refresh messages after sending
+                } catch (error) {
+                    console.error("Error sending message:", error);
+                }
+            }
+        }
+
+        // Fetch messages every 3 seconds
+        setInterval(fetchMessages, 3000);
+
+        // Send message when form is submitted
+        messageForm.addEventListener('submit', sendMessage);
+
+        // Initial message load
+        fetchMessages();
+    </script>
+
+</body>
+</html>

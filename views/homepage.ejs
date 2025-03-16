@@ -1,93 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>
-            Webpage design
-        </title>
-       <link rel="stylesheet" href="/assets/homepage.css">
-        
+<head>
+    <title>Webpage Design</title>
+    <link rel="stylesheet" href="/assets/homepage.css">
+</head>
 
-
-    
-
-
-        
-    </head>
-    
 <body>
     <div class="main">
         <div class="navbar">
             <div class="icon">
                 <img src="/assets/iiestlogo3original.png" alt="Beings Logo" class="logo-img">
             </div>
-        
-        
-                    
-
-                   <div class="menu"></div>
-                   <ul>
+            <div class="menu">
+                <ul>
                     <li><a href="/login">LOGIN</a></li>
                     <li><a href="/signup">SIGNUP</a></li>
                     <li><a href="/about">ABOUT</a></li>
-                    
-
-                   </ul>
-
-
-                </div>
+                </ul>
             </div>
-
-
-                   
-                   
-            
-            
-            
-
+        </div>
     </div>
 
-    <h1>Find you potential Mates</h1>
-
+    <h1>Find Your Potential Mates</h1>
 
     <div class="cards"></div>
 
     <script>
-      // Function to fetch data from the backend
-      async function fetchData() {
-        try {
-          const response = await fetch('/api/users'); // Updated URL for the API route
-          const data = await response.json();
-    
-          const cardsContainer = document.querySelector('.cards');
-    
-          data.forEach((item) => {
-            const card = document.createElement('div');
-            card.classList.add('card');
-    
-            const name = document.createElement('p');
-            name.textContent = `Name: ${item.firstname} ${item.surname}`;
-    
-            const email = document.createElement('p');
-            email.textContent = `Area of Interest: ${item.dob}`;
-    
-            // Append p tags to the card div
-            card.appendChild(name);
-            card.appendChild(email);
-    
-            // Append the card to the cardsContainer
-            cardsContainer.appendChild(card);
-          });
-        } catch (error) {
-          console.error("Error fetching data:", error);
+        // Function to fetch data from the backend
+        async function fetchData() {
+            try {
+                const response = await fetch('/api/users'); // API endpoint
+                if (!response.ok) throw new Error('Failed to fetch data');
+
+                const data = await response.json();
+                console.log(data);
+                const cardsContainer = document.querySelector('.cards');
+
+                if (data.length === 0) {
+                    cardsContainer.innerHTML = "<p>No users found.</p>";
+                    return;
+                }
+
+                data.forEach((user) => {
+                    const card = document.createElement('div');
+                    card.classList.add('card');
+
+                    const name = document.createElement('p');
+                    name.textContent = `Name: ${user.firstname} ${user.surname}`;
+
+                    const rollNo = document.createElement('p');
+                    rollNo.textContent = `Area of Interest : ${user.dob}`;
+
+                    const email = document.createElement('p');
+                    email.textContent = `Email: ${user.email}`;
+
+                    const contactLink = document.createElement('a');
+                    contactLink.style.color = 'white';
+                    contactLink.style.textDecoration = 'none';
+                    contactLink.style.marginTop = '10px';
+                    contactLink.style.display = 'inline-block';
+                    contactLink.style.border = '1px solid white';
+                    contactLink.style.borderRadius = '5px';
+                    contactLink.style.padding = '10px 10px';
+                    contactLink.href = `mailto:${user.email}`;
+                    contactLink.textContent = 'Contact';
+
+                    // Append details to card
+                    card.appendChild(name);
+                    card.appendChild(rollNo);
+                    
+                    card.appendChild(contactLink);
+
+                    // Append card to container
+                    cardsContainer.appendChild(card);
+                });
+            } catch (error) {
+                console.error("Error fetching data:", error);
+                document.querySelector('.cards').innerHTML = "<p>Error loading users.</p>";
+            }
         }
-      }
-    
-      // Call fetchData when the page loads
-      document.addEventListener('DOMContentLoaded', fetchData);
+
+        // Load data when the page loads
+        document.addEventListener('DOMContentLoaded', fetchData);
     </script>
-    
-    
 </body>
 </html>
-
-

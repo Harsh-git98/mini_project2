@@ -1,10 +1,12 @@
 {
   "dependencies": {
     "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.3",
     "connect-mongo": "^5.1.0",
     "ejs": "^3.1.10",
-    "express": "^4.21.1",
+    "express": "^4.21.2",
     "express-session": "^1.18.1",
-    "mongoose": "^8.7.3"
+    "mongoose": "^8.12.1",
+    "socket.io": "^4.8.1"
   }
 }
