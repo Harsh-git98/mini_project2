@@ -1,0 +1,81 @@
+body{
+    background-color: rgb(3, 7, 29);
+}
+h1{
+    color:bisque;
+    margin-bottom: 10px;
+    text-align: center;
+}
+#welcome{
+    color: antiquewhite;
+    font-size: 25px;
+    line-height: 1.5;
+    margin: 15px 0;
+    text-align: center;
+}
+
+#messages {
+    padding: 10px;
+    background-color: transparent;
+    border: 5px solid white;
+    border-radius: 5px;
+    color: white;
+    overflow-y: auto;
+    max-height: 400px; /* Adjust this to your desired height */
+}
+
+.message {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 70%;
+}
+
+.message-self {
+    background-color: #03a9eb; /* Light blue */
+    color: white;
+    align-self: flex-end;
+}
+
+.message-other {
+    background-color: #502fe4; /* Light gray */
+    color: black;
+    align-self: flex-start;
+}
+
+#messages {
+    display: flex;
+    flex-direction: column;
+}
+
+strong{
+
+    color: rgb(69, 181, 247);
+    font-size: 20px;
+
+}
+
+/* Optional: Add some basic styling to the form */
+#message-form {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#message-input {
+    padding: 10px;
+    width: calc(100% - 60px); /* Adjust based on button size */
+    border: none;
+    border-radius: 5px 0 0 5px;
+}
+
+#message-form button[type="submit"] {
+    padding: 10px;
+    border: none;
+    background-color: #4CAF50; /* Green */
+    color: white;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
